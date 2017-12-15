@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: kwilliams
- * Date: 11/27/17
- * Time: 5:25 PM
- */
 
 class routes
 {
@@ -37,10 +31,18 @@ class routes
         $route = new route();
         $route->http_method = 'POST';
         $route->action = 'create';
-        $route->page = 'homepage';
+        $route->page = 'accounts';
         $route->controller = 'homepageController';
         $route->method = 'create';
         $routes[] = $route;
+
+	$route = new route();
+	$route->http_method = 'POST';
+	$route->action = 'logout';
+	$route->page = 'accounts';
+	$route->controller = 'accountsController';
+	$route->method = 'logout';
+	$routes[] = $route;
 
         //This is an examole of the post for tasks to show a task
         //GET METHOD index.php?page=tasks&action=show
@@ -66,17 +68,18 @@ class routes
         //GET METHOD index.php?page=accounts&action=all
 //https://web.njit.edu/~kwilliam/mvc/index.php?page=accounts&action=all
 
-        $route = new route();
+        /*$route = new route();
         $route->http_method = 'GET';
         $route->action = 'all';
         $route->page = 'accounts';
         $route->controller = 'accountsController';
         $route->method = 'all';
-        $routes[] = $route;
+        $routes[] = $route;*/
+
         //GET METHOD index.php?page=accounts&action=show
 
         $route = new route();
-        $route->http_method = 'GET';
+        $route->http_method = 'POST';
         $route->action = 'show';
         $route->page = 'accounts';
         $route->controller = 'accountsController';
@@ -85,7 +88,6 @@ class routes
 
         //This goes in the login form action method
         //GET METHOD index.php?page=accounts&action=login
-
 
         $route = new route();
         $route->http_method = 'POST';
@@ -99,12 +101,12 @@ class routes
 
         $route = new route();
         $route->http_method = 'GET';
-        $route->action = 'delete';
+        $route->action = 'edit';
         $route->page = 'tasks';
         $route->controller = 'tasksController';
-        $route->method = 'delete';
+        $route->method = 'edit';
         $routes[] = $route;
-
+	//return $route;
 
         $route = new route();
         $route->http_method = 'POST';
@@ -145,7 +147,6 @@ class routes
         $route->controller = 'accountsController';
         $route->method = 'store';
         $routes[] = $route;
-
 
         return $routes;
     }

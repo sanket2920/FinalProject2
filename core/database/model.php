@@ -87,7 +87,7 @@ abstract class model
 
     public function delete()
     {
-        echo 'in delete';
+        //echo 'in delete';
 	$db = dbConn::getConnection();
         $modelName = static::$modelName;
         $tableName = $modelName::getTablename();
