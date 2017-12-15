@@ -44,7 +44,7 @@ class tasksController extends http\controller
 
     public static function create()
     {
-        print_r($_POST);
+        //print_r($_POST);
     }
 
     //this is the function to view edit record form
