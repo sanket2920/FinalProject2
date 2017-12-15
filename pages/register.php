@@ -22,6 +22,7 @@
     First name: <input type="text" name="fname"><br>
     Last name: <input type="text" name="lname"><br>
     Email: <input type="text" name="email"><br>
+    Birthday: <input type="text" name="birthday" value=""><br>
     Phone: <input type="text" name="phone"><br>
     Gender: <input type="text" name="gender"><br>
     Password: <input type="password" name="password"><br>
