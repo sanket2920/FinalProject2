@@ -1,5 +1,4 @@
 <?php
-
 //each page extends controller and the index.php?page=tasks causes the controller to be called
 class accountsController extends http\controller
 {
@@ -42,11 +41,9 @@ class accountsController extends http\controller
             $user->birthday = $_POST['birthday'];
             $user->gender = $_POST['gender'];
 	    $user->password = $_POST['password'];
-            $user->password = accounts::setPassword($_POST['password']);
+            $user->password = account::setPassword($_POST['password']);
             $user->save();
-
             header("Location: index.php?page=homepage&action=show");
-
         } else {
 		echo 'in else';
             //You can make a template for errors called error.php
@@ -58,14 +55,13 @@ class accountsController extends http\controller
     }
     public static function edit()
     {
+    	//echo $_REQUEST['uname'];
         $record = accounts::findOne($_REQUEST['id']);
         self::getTemplate('edit_account', $record);
-
     }
 //this is used to save the update form data
     public static function save() {
         $user = accounts::findOne($_REQUEST['id']);
-
         $user->email = $_POST['email'];
         $user->fname = $_POST['fname'];
         $user->lname = $_POST['lname'];
@@ -86,7 +82,6 @@ class accountsController extends http\controller
     {
         $user = accounts::findUserbyEmail($_REQUEST['uname']);
 	//print_r(user);
-
         if ($user == FALSE) {
             echo 'user not found';
         } else {
@@ -94,7 +89,7 @@ class accountsController extends http\controller
                 //echo 'login';
                 session_start();
                 $_SESSION["userID"] = $user->id;
-
+		$_SESSION["email"] = $user->email;
                 //forward the user to the show all todos page
                 //print_r($_SESSION);
 		self::getTemplate('login_homepage', NULL);
