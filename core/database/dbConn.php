@@ -1,12 +1,10 @@
 <?php
-
 namespace database;
 //singleton pattern
 class dbConn
 {
     //variable to hold connection object.
     protected static $db;
-
     //private construct - class cannot be instatiated externally.
     private function __construct()
     {
