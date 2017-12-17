@@ -1,14 +1,13 @@
 <?php
-
 namespace utility;
 //namespace MyProject\mvcName;
-
 class htmlTable
 {
     public static function genarateTableFromMultiArray($array)
     {
 
-        $tableGen = '<table border="1"cellpadding="10">';
+        //print_r($array);
+	$tableGen = '<table border=2>';
         $tableGen .= '<tr>';
         //this grabs the first element of the array so we can extract the field headings for the table
         $fieldHeadings = $array[0];
@@ -24,11 +23,9 @@ class htmlTable
             $tableGen .= '<tr>';
             foreach ($record as $key => $value) {
                 if ($key == 'id') {
-                    //$tableGen .= '<td><a href="index.php?page=' . $referingPage . '&action=show&id=' . $value . '">View</a></td>';
-                } 
-		//else {
+                    $id1=$value;
+		}
                     $tableGen .= '<td>' . $value . '</td>';
-                //}
             }
 	    //print_r($record['id'];
 	    //echo $id1;
@@ -40,16 +37,13 @@ class htmlTable
 	    $id1='';
             $tableGen .= '</tr>';
         }
-
         $tableGen .= '</table>';
-
         return $tableGen;
     }
 
     public static function generateTableFromOneRecord($innerArray)
     {
         $tableGen = '<table border="1" cellpadding="10"><tr>';
-
         $tableGen .= '<tr>';
         foreach ($innerArray as $innerRow => $value) {
             $tableGen .= '<th>' . $innerRow . '</th>';
@@ -59,10 +53,8 @@ class htmlTable
         foreach ($innerArray as $value) {
             $tableGen .= '<td>' . $value . '</td>';
         }
-
         $tableGen .= '</tr></table><hr>';
         return $tableGen;
     }
 }
-
 ?>
