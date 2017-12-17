@@ -1,31 +1,47 @@
-<!doctype html>
-
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-
-    <title>The HTML5 Herald</title>
-    <meta name="description" content="The HTML5 Herald">
-    <meta name="author" content="SitePoint">
-
-    <link rel="stylesheet" href="css/styles.css?v=1.0">
-
-    <!--[if lt IE 9]>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
-    <![endif]-->
+  <title>Task manager</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
+
+<body text-align:center>
+        <li class="active"><a href="#">Home</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+      
+      <li><div>
+        <form action="index.php?page=accounts&action=show" method="POST">
+        <button type="submit" >Your Profile</button>
+        </form></div></li>
+        
+        <li><div>
+        <form action="index.php?page=accounts&action=logout" method="POST">
+        <button type="submit" >Logout</button>
+        </form></div></li>
+      </ul>
 <body>
 
 <?php
-//this is how you print something
-
-print utility\htmlTable::genarateTableFromMultiArray($data);
-
-
+$text='';
+$text.='<h2>Pending Tasks</h2><br>';
+$text.='<a href="index.php?page=tasks&action=create"><span class="glyphicon glyphicon-plus">Create New Task</span></a>';
+if($data==FALSE){
+  $text.='<br>No records found';
+  $text.='</center>';
+  echo $text;
+}
+else{
+$text.=utility\htmlTable::genarateTableFromMultiArray($data);
+echo $text;
+}
 ?>
 
-
-<script src="js/scripts.js"></script>
+</div>
+<footer class="container-fluid text-center">
+  <p>WSD Final Project</p>
+</footer>
 </body>
 </html>
