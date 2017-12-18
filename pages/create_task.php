@@ -10,7 +10,7 @@
 
 <body text-align:center>
   <center>
-<a href="#">Home</a>
+<a href="index.php?page=accounts&action=back1">Home</a>
 
 <br>
 <br>
@@ -70,10 +70,5 @@
 </div>
 
 <center>
-<footer class="container-fluid text-center">
-  <p>WSD Final Project</p>
-</footer>
-
-<script src="js/scripts.js"></script>
 </body>
 </html>

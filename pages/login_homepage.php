@@ -13,14 +13,16 @@
 <center>
 <h1><a href="index.php?page=tasks&action=all">Show All Tasks</a></h1>
 
+<br>
+
 <form action="index.php?page=accounts&action=show" method="POST">
         <button type="submit">Your Profile</button>
 </form>
-</div>
+<br>
 
 <form action="index.php?page=accounts&action=logout" method="POST">
         <button type="submit">LOGOUT</button>
 </form>
-</div>
+<br>
 </center>
 </body>
